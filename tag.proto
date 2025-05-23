@@ -1,0 +1,33 @@
+syntax = "proto3";
+package blog.tag;
+
+service TagAction {
+  rpc List(Pagination) returns (TagListResponse);
+  rpc GetById(Id) returns (TagSchema);
+  rpc Update(TagSchema) returns (TagSchema);
+  rpc Delete(Id) returns (TagDeleteResponse);
+}
+
+message Pagination {
+  int32 page_index = 1;
+  int32 page_size = 2;
+}
+
+message TagListResponse {
+  int32 total = 1;
+  repeated TagSchema tags = 2;
+}
+
+message TagDeleteResponse {
+  repeated string ids = 1;
+}
+
+message TagSchema {
+  string id = 1;
+  string code = 2;
+  string label = 3;
+}
+
+message Id {
+  string id = 1;
+}
