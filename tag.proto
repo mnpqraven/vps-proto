@@ -2,6 +2,7 @@ syntax = "proto3";
 package blog.tag;
 
 import "common/db.proto";
+import "google/protobuf/timestamp.proto";
 
 service BlogTagService {
   rpc List(common.db.Pagination) returns (BlogTagList);
@@ -21,6 +22,8 @@ message BlogTag {
   string id = 1;
   string code = 16;
   string label = 17;
+  int64 created_at = 6;
+  int64 updated_at = 7;
 }
 
 message BlogTagShape {
