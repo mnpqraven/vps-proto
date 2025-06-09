@@ -1,0 +1,36 @@
+syntax = "proto3";
+package blog.meta;
+
+import "common/db.proto";
+import "google/protobuf/timestamp.proto";
+
+service BlogMetaService {
+  rpc List(common.db.Pagination) returns (BlogMetaList);
+  rpc GetById(common.db.Id) returns (BlogMeta);
+  rpc Create(BlogMetaShape) returns (BlogMeta);
+  rpc Update(BlogMeta) returns (BlogMeta);
+  rpc Delete(common.db.Id) returns (common.db.Id);
+}
+
+message BlogMetaList {
+  common.db.Pagination pagination = 4;
+  int32 total = 5;
+  repeated BlogMeta data = 15;
+}
+
+message BlogMeta {
+  string id = 1;
+
+  string title = 16;
+  string file_name = 17;
+  bool is_publish = 18;
+
+  int64 created_at = 6;
+  int64 updated_at = 7;
+}
+
+message BlogMetaShape {
+  string title = 16;
+  string file_name = 17;
+  bool is_publish = 18;
+}
