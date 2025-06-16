@@ -8,6 +8,7 @@ message Id {
 message Pagination {
   int32 page_index = 2;
   int32 page_size = 3;
+  string search = 4;
 }
 
 
