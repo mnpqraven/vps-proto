@@ -2,7 +2,6 @@ syntax = "proto3";
 package blog.meta;
 
 import "common/db.proto";
-import "google/protobuf/timestamp.proto";
 
 service BlogMetaService {
   rpc List(common.db.Pagination) returns (BlogMetaList);

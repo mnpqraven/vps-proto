@@ -1,0 +1,22 @@
+syntax = "proto3";
+package blog.root;
+
+import "common/db.proto";
+import "blog/meta.proto";
+import "blog/tag.proto";
+
+service BlogService {
+  rpc Create(BlogShape) returns (Blog);
+}
+
+message BlogShape {
+  blog.meta.BlogMetaShape meta_shape = 16;
+  repeated string tag_ids = 17;
+  string file_content = 18;
+}
+
+message Blog {
+  blog.meta.BlogMeta meta = 16;
+  repeated blog.tag.BlogTag tags = 17;
+  string content = 18;
+}

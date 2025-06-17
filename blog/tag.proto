@@ -2,7 +2,6 @@ syntax = "proto3";
 package blog.tag;
 
 import "common/db.proto";
-import "google/protobuf/timestamp.proto";
 
 service BlogTagService {
   rpc List(common.db.Pagination) returns (BlogTagList);
