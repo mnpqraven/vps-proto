@@ -4,7 +4,7 @@ package blog.tag;
 import "common/db.proto";
 
 service BlogTagService {
-  rpc List(common.db.Pagination) returns (BlogTagList);
+  rpc List(common.db.ProtoPagination) returns (BlogTagList);
   rpc GetById(common.db.Id) returns (BlogTag);
   rpc Create(BlogTagShape) returns (BlogTag);
   rpc Update(BlogTag) returns (BlogTag);
@@ -12,7 +12,7 @@ service BlogTagService {
 }
 
 message BlogTagList {
-  common.db.Pagination pagination = 4;
+  common.db.ProtoPagination pagination = 4;
   int32 total = 5;
   repeated BlogTag data = 15;
 }

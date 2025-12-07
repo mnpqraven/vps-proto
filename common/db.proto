@@ -5,10 +5,11 @@ message Id {
   string id = 1;
 }
 
-message Pagination {
-  int32 page_index = 2;
-  int32 page_size = 3;
-  string search = 4;
+message ProtoPagination {
+  optional int32 page_index = 2;
+  optional int32 page_size = 3;
+  optional string search = 4;
+  optional bool all = 5;
 }
 
 

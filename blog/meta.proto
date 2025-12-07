@@ -4,7 +4,7 @@ package blog.meta;
 import "common/db.proto";
 
 service BlogMetaService {
-  rpc List(common.db.Pagination) returns (BlogMetaList);
+  rpc List(common.db.ProtoPagination) returns (BlogMetaList);
   rpc GetById(common.db.Id) returns (BlogMeta);
   rpc Create(BlogMetaShape) returns (BlogMeta);
   rpc Update(BlogMeta) returns (BlogMeta);
@@ -12,12 +12,14 @@ service BlogMetaService {
 }
 
 message BlogMetaList {
-  common.db.Pagination pagination = 4;
+  // required
+  common.db.ProtoPagination pagination = 4;
   int32 total = 5;
   repeated BlogMeta data = 15;
 }
 
 message BlogMeta {
+  // required
   string id = 1;
 
   string title = 16;
