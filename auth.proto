@@ -1,0 +1,14 @@
+syntax = "proto3";
+package auth;
+
+service AuthService {
+  rpc Login(LoginRequest) returns (LoginResponse);
+}
+
+message LoginRequest {
+  string user_email = 1;
+  string access_token = 2;
+  int64 max_age = 3;
+}
+
+message LoginResponse { bool success = 1; }
