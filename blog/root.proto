@@ -8,6 +8,7 @@ import "blog/tag.proto";
 service BlogService {
   rpc Create(BlogShape) returns (Blog);
   rpc Detail(common.db.Id) returns (Blog);
+  rpc Delete(common.db.Id) returns (common.db.Id);
 }
 
 message BlogShape {
