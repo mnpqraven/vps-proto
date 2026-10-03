@@ -9,6 +9,15 @@ service BlogService {
   rpc Create(BlogShape) returns (Blog);
   rpc Detail(common.db.Id) returns (Blog);
   rpc Delete(common.db.Id) returns (common.db.Id);
+  // TODO: response
+  rpc Update(BlogUpdateRequest) returns (common.db.Id);
+  rpc UpdateContent(ContentPayload) returns (Blog);
+}
+
+message BlogUpdateRequest {
+  string id = 1;
+  optional BlogShape meta = 16;
+  optional string file_content = 17;
 }
 
 message BlogShape {
@@ -21,4 +30,10 @@ message Blog {
   blog.meta.BlogMeta meta = 16;
   repeated blog.tag.BlogTag tags = 17;
   string content = 18;
+}
+
+message ContentPayload {
+  // blog id
+  string id = 1;
+  string file_content = 16;
 }

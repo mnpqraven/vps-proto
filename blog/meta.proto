@@ -7,8 +7,15 @@ service BlogMetaService {
   rpc List(common.db.ProtoPagination) returns (BlogMetaList);
   rpc GetById(common.db.Id) returns (BlogMeta);
   rpc Create(BlogMetaShape) returns (BlogMeta);
-  rpc Update(BlogMeta) returns (BlogMeta);
+  rpc Update(BlogMetaUpdateRequest) returns (BlogMeta);
   rpc Delete(common.db.Id) returns (common.db.Id);
+}
+
+message BlogMetaUpdateRequest {
+  // required
+  string id = 1;
+  string title = 16;
+  bool is_publish = 18;
 }
 
 message BlogMetaList {
