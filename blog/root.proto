@@ -17,7 +17,6 @@ service BlogService {
 message BlogUpdateRequest {
   string id = 1;
   optional BlogShape meta = 16;
-  optional string file_content = 17;
 }
 
 message BlogShape {
